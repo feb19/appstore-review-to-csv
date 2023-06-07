@@ -34,12 +34,12 @@ const req = https.request(`https://itunes.apple.com/jp/rss/customerreviews/id=${
     })
     csvWriter
         .writeRecords(data)
-        .then(() => console.log("CSVファイルが正常に書き出されました。"))
-        .catch((err) => console.error("CSVファイルの書き出し中にエラーが発生しました:", err))
+        .then(() => console.log("Done: output.csv"))
+        .catch((err) => console.error("Error occured:", err))
 
   })
 })
 req.on("error", (e) => {
-  console.error(`エラーが発生しました： ${e.message}`)
+  console.error(`Error: ${e.message}`)
 })
 req.end()
